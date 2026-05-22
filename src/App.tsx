@@ -7,7 +7,7 @@ export default function App() {
   const [status, setStatus] = useState<{ type: 'idle' | 'error' | 'success', msg: string }>({ type: 'idle', msg: '' });
 
   const validateInput = () => {
-    // Validación estricta con expresiones regulares (Sanitización)
+    // Validación estricta con expresiones regulares 
     const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,40}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -32,7 +32,7 @@ export default function App() {
     setStatus({ type: 'idle', msg: '' });
 
     try {
-      // Aquí simulamos el envío al backend donde ocurre la magia anti-SQL Inyection
+
       const response = await fetch('/api/registro', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -95,7 +95,6 @@ export default function App() {
           </button>
         </form>
 
-        {/* Notificaciones Animadas con Framer Motion */}
         {status.type !== 'idle' && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
